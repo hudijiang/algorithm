@@ -30,22 +30,20 @@ package easy
 //leetcode submit region begin(Prohibit modification and deletion)
 func isPalindrome(x int) bool {
 	//如果是负数、或者是个位数、或者个位数是10 则不是回文数
-	if x < 0 || x%10 == 0 || x < 10 {
+	if x < 0 {
 		return false
 	}
+	original := x
 	//翻转后的数值
 	result := 0
 
-	for {
+	for x != 0 {
 		n := x % 10
 		x = x / 10
 		result = result*10 + n
-		if result > x {
-			break
-		}
 	}
 	//如果
-	return result == x || x == result/10
+	return result == original || original == result/10
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
